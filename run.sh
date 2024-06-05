@@ -1,5 +1,5 @@
 #!/bin/sh  
-source .env
+. ./.env
 
 while true
 do
@@ -9,3 +9,4 @@ do
 	`docker compose up`
   sleep $DELAY_IN_SECONDS
 done
+	
