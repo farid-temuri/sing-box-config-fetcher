@@ -1,7 +1,5 @@
 #!/bin/sh  
-
-SECONDS_TO_SLEEP=3600
-CONFIG_URL=localhost:3000/config/ne?asd=ass
+source .env
 
 while true
 do
@@ -9,5 +7,5 @@ do
 	echo $REQUESTED > ./sing-box/config.json
 	`docker compose down`
 	`docker compose up`
-  sleep $SECONDS_TO_SLEEP
+  sleep $DELAY_IN_SECONDS
 done
