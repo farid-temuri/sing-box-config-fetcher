@@ -10,3 +10,6 @@ services:
     volumes:
       - ./sing-box:/etc/sing-box/
     command: -D /var/lib/sing-box -C /etc/sing-box/ run
+    logging:
+      driver: "none"
+
