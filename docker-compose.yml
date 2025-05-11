@@ -9,6 +9,9 @@ services:
     volumes:
       - ./config:/etc/sing-box
       - ./scripts:/scripts
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=Europe/Moscow  # Moscow time (UTC+3)
     env_file:
       - .env
     entrypoint: ["/bin/bash", "/scripts/entrypoint.sh"]

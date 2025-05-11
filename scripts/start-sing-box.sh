@@ -60,6 +60,6 @@ start_webhook() {
 if [ "$ENABLE_WEBHOOK" = "true" ]; then
     start_webhook
 else
-    echo "Sleeping for 24 hours..."
-    sleep 86400
+    # Keep the script running but don't sleep
+    tail -f /dev/null
 fi
