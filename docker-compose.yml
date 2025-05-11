@@ -1,14 +1,15 @@
-version: '3.8'
+version: "3.8"
+
 services:
   sing-box:
     image: ghcr.io/sagernet/sing-box
-    container_name: sing-boxer
+    container_name: sing-box
     restart: always
     ports:
-      - '443:443'
+      - "8080:8080"
     volumes:
-      - ./sing-box:/etc/sing-box/
-    command: -D /var/lib/sing-box -C /etc/sing-box/ run
-    logging:
-      driver: "none"
-
+      - ./config:/etc/sing-box
+      - ./scripts:/scripts
+    env_file:
+      - .env
+    entrypoint: ["/bin/bash", "/scripts/entrypoint.sh"]
